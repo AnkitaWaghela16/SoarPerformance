@@ -1,0 +1,2113 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": false,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 19,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Status: <span style=\"color: green;\">PASS</span><br />Created: 4 Dec, 00:11<br />Started by: ankita.waghela16@gmail.com",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.4.0-79489",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "VUs: 50<br />Duration: 5 min<br />Load zones: ",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.4.0-79489",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 3,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "## Summary\n\nThis report summarizes a test run of the test \"bdd_loadtest\". It was performed on\nDecember 4th, 2024 and is considered to be successful.\n\nThe test was configured to run up to **50 VUs** for 5 min.\nThe sections below give a more detailed breakdown.",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.4.0-79489",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "# HTTP Overview",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.4.0-79489",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "lt",
+                "reducer": "max",
+                "value": 0.01
+              }
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 11
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79489",
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The number of HTTP requests made.",
+              "label": "Request Rate",
+              "metricCategory": "http",
+              "metricType": "counter",
+              "name": "http_reqs",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#7d64ff",
+                "group": "purple",
+                "shade": "semi-dark-"
+              },
+              "query": {
+                "method": "rate",
+                "metric": "http_reqs",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "aggregate"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "Max Throughput",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "lt",
+                "reducer": "max",
+                "value": 0.01
+              }
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 11
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79489",
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The rate of failed requests returned from the remote host.",
+              "label": "Failure Rate",
+              "metricCategory": "http",
+              "metricType": "rate",
+              "name": "http_req_failed",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#d10e5c",
+                "group": "red"
+              },
+              "query": {
+                "method": "rate_nz",
+                "metric": "http_req_failed",
+                "tags": {},
+                "type": "aggregate"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "HTTP Failures",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "lt",
+                "reducer": "max",
+                "value": 0.01
+              }
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 11
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79489",
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The average time it took to process complete requests.",
+              "label": "Avg. Response time",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_avg",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "aggregate"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "Avg. Response Time",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "lt",
+                "reducer": "max",
+                "value": 0.01
+              }
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 11
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.4.0-79489",
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The 95th percentile of the time it took to process complete requests.",
+              "label": "Response Time",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_quantile(0.95)",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "aggregate"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "95% Response Time",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 9,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "## Performance overview\n\nThe 95th percentile response time of the system being tested was **13  ms**\nand **612 470 requests** were made at an average request rate of\n**2 187 reqs/s**.\n\nThere were a total 612 470 failed requests, meaning \nthat 100% of requests failed. The average failure rate was \n**2 260 reqs/s**, peaking at 4 402 reqs/s.",
+        "mode": "markdown"
+      },
+      "pluginVersion": "11.4.0-79489",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "VUs"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Response Time"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Request rate"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "D"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Failure rate"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The number of virtual users running.",
+              "label": "VUs",
+              "metricCategory": "standard",
+              "metricType": "gauge",
+              "name": "vus",
+              "plot": {
+                "type": "area"
+              },
+              "preferredColor": {
+                "exact": "#86868659",
+                "group": "grey"
+              },
+              "query": {
+                "method": "sum(last by (instance_id))",
+                "metric": "vus",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "VUs"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The 95th percentile of the time it took to process complete requests.",
+              "label": "Response Time",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_quantile(0.95)",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "B",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The number of HTTP requests made.",
+              "label": "Request rate",
+              "metricCategory": "http",
+              "metricType": "counter",
+              "name": "http_reqs",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#7d64ff",
+                "group": "purple",
+                "shade": "semi-dark-"
+              },
+              "query": {
+                "method": "rate",
+                "metric": "http_reqs",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "C",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The rate of failed requests returned from the remote host.",
+              "label": "Failure rate",
+              "metricCategory": "http",
+              "metricType": "rate",
+              "name": "http_req_failed",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#d10e5c",
+                "group": "red"
+              },
+              "query": {
+                "method": "rate_nz",
+                "metric": "http_req_failed",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "D",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 29
+      },
+      "id": 11,
+      "options": {
+        "content": "## Top 10 slowest URLs (sorted by P95 response time)\n\n \n  There were requests to 2 unique URLs, with \n  612 470 different responses received. The \n  slowest response had a P95 response time of 13  ms.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Name"
+            },
+            "properties": [
+              {
+                "id": "custom.minWidth",
+                "value": 400
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STDDEV"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 12,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "orderBy": {
+                "direction": "desc",
+                "field": "http_metric_summary/duration/p95"
+              },
+              "pagination": {
+                "take": 10
+              },
+              "type": "http"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 37
+      },
+      "id": 13,
+      "options": {
+        "content": "# Checks\n\nThe test had **2** different checks that were evaluated a total of\n**612 470** times, of which **612 470** failed. Overall the\nsuccess rate was **0%**. The 2 checks with the highest failure rate failed **100%**\nof the time.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 14,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "pagination": {
+                "take": 10
+              },
+              "type": "checks"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 46
+      },
+      "id": 15,
+      "options": {
+        "content": "# Thresholds\n\n\nThe run met all of its performance expectations, with none of the defined thresholds having been\nexceeded.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 16,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "pagination": {
+                "take": 10
+              },
+              "type": "thresholds"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "table"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 54
+      },
+      "id": 17,
+      "options": {
+        "content": "# Global results",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 56
+      },
+      "id": 18,
+      "options": {
+        "content": "## Response time\n\nThe maximum response time occurred at **28 VUs**, with a response \ntime of **70  ms**. The average response time at the same point in time was **10  ms**, \nwith 95% of requests taking less than **13  ms**.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "VUs"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Avg."
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "90th percentile"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "D"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "95th percentile"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "E"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "99th percentile"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "F"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Max"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The number of virtual users running.",
+              "label": "VUs",
+              "metricCategory": "standard",
+              "metricType": "gauge",
+              "name": "vus",
+              "plot": {
+                "type": "area"
+              },
+              "preferredColor": {
+                "exact": "#86868659",
+                "group": "grey"
+              },
+              "query": {
+                "method": "sum(last by (instance_id))",
+                "metric": "vus",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "VUs"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The average time it took to process complete requests.",
+              "label": "Avg.",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_avg",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "B",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The 90th percentile of the time it took to process complete requests.",
+              "label": "90th percentile",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_quantile(0.90)",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "C",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The 95th percentile of the time it took to process complete requests.",
+              "label": "95th percentile",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_quantile(0.95)",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "D",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The 99th percentile of the time it took to process complete requests.",
+              "label": "99th percentile",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_quantile(0.99)",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "E",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The max time it took to process complete requests.",
+              "label": "Max",
+              "metricCategory": "http",
+              "metricType": "trend",
+              "name": "http_req_duration",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "histogram_max",
+                "metric": "http_req_duration",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "ms"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "F",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 66
+      },
+      "id": 20,
+      "options": {
+        "content": "## Throughput\n\nThe test had an overall average request rate of **2 260 reqs/s**, peaking at an\naverage of **4 402 reqs/s** while running **49 VUs**.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "VUs"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Request rate"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Failure rate"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 70
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The number of virtual users running.",
+              "label": "VUs",
+              "metricCategory": "standard",
+              "metricType": "gauge",
+              "name": "vus",
+              "plot": {
+                "type": "area"
+              },
+              "preferredColor": {
+                "exact": "#86868659",
+                "group": "grey"
+              },
+              "query": {
+                "method": "sum(last by (instance_id))",
+                "metric": "vus",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "VUs"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The number of HTTP requests made.",
+              "label": "Request rate",
+              "metricCategory": "http",
+              "metricType": "counter",
+              "name": "http_reqs",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#7d64ff",
+                "group": "purple",
+                "shade": "semi-dark-"
+              },
+              "query": {
+                "method": "rate",
+                "metric": "http_reqs",
+                "tags": {
+                  "status": {
+                    "name": "status",
+                    "operator": "not-equal",
+                    "values": [
+                      "0"
+                    ]
+                  }
+                },
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "B",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The rate of failed requests returned from the remote host.",
+              "label": "Failure rate",
+              "metricCategory": "http",
+              "metricType": "rate",
+              "name": "http_req_failed",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#d10e5c",
+                "group": "red"
+              },
+              "query": {
+                "method": "rate_nz",
+                "metric": "http_req_failed",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "reqps"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "C",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 76
+      },
+      "id": 22,
+      "options": {
+        "content": "## Bandwidth\n\nThe amount of data sent peaked at **49 VUs**, sending **1.3 MB/s** of \ndata. Data received had its peak at **49 VUs** with **13.4 MB/s** being received. \nA total of **182 MB** was sent and **1.82 GB** received during the course of \nthe entire run.",
+        "mode": "markdown"
+      },
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "k6-datasource",
+        "uid": "grafanacloud-k6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "VUs"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Data sent"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Data received"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 80
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "body": {
+            "config": {
+              "description": "The number of virtual users running.",
+              "label": "VUs",
+              "metricCategory": "standard",
+              "metricType": "gauge",
+              "name": "vus",
+              "plot": {
+                "type": "area"
+              },
+              "preferredColor": {
+                "exact": "#86868659",
+                "group": "grey"
+              },
+              "query": {
+                "method": "sum(last by (instance_id))",
+                "metric": "vus",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "VUs"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "A",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The amount of data (in bytes) that was sent.",
+              "label": "Data sent",
+              "metricCategory": "standard",
+              "metricType": "counter",
+              "name": "data_sent",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "group": "purple",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "rate",
+                "metric": "data_sent",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "bytes"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "B",
+          "version": 4
+        },
+        {
+          "body": {
+            "config": {
+              "description": "The amount of data (in bytes) that was received.",
+              "label": "Data received",
+              "metricCategory": "standard",
+              "metricType": "counter",
+              "name": "data_received",
+              "plot": {
+                "style": "solid",
+                "type": "line"
+              },
+              "preferredColor": {
+                "exact": "#04cdff",
+                "group": "blue",
+                "shade": "light-"
+              },
+              "query": {
+                "method": "rate",
+                "metric": "data_received",
+                "tags": {},
+                "type": "series"
+              },
+              "type": "metric",
+              "unit": "bytes"
+            },
+            "projectId": "3727879",
+            "testId": "948295",
+            "testRunId": "3591875",
+            "type": "testrun"
+          },
+          "datasource": {
+            "type": "k6-datasource",
+            "uid": "grafanacloud-k6"
+          },
+          "refId": "C",
+          "version": 4
+        }
+      ],
+      "title": "",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "25s",
+  "schemaVersion": 40,
+  "tags": [
+    "k6"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-12-03T18:42:03+00:00",
+    "to": "2024-12-03T18:46:45+00:00"
+  },
+  "timepicker": {
+    "hidden": true,
+    "refresh_intervals": []
+  },
+  "timezone": "browser",
+  "title": "bdd_loadtest - 4 Dec, 00:12",
+  "uid": "ae5tvhi0cqvwga",
+  "version": 1,
+  "weekStart": ""
+}
